@@ -1,15 +1,26 @@
 const express = require('express');
-const path = require('path');
+
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+
+
+//home page roye
+app.get("/", (req, res) => {
+  res.send("Hello Slash World!");
+});
+
+
+//hello test route
+app.get('/hello', (req, res) => {
+  res.send('Open Sores backend is alive');
+});
+
+app.get('/login', (req, res) => {
+  res.send('Login page coming soon');
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log('Server running on http://localhost:3000');
 });
